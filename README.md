@@ -2,37 +2,14 @@
 
 A queueing-theory-based digital twin used to analyze latency behavior, validate service-level objectives (SLOs), and estimate network service capacity limits using real measurements collected from a live deployment.
 
-## Architecture
-## 🏗️ System Architecture
 
-```mermaid
-flowchart LR
+## System Architecture
 
-    subgraph Client[" Client Layer"]
-        A["MacBook Air"]
-        B["Poisson Traffic Generator"]
-        A --> B
-    end
+<p align="center">
+  <img src="docs/architecture.svg" alt="System Architecture" width="100%">
+</p>
 
-    subgraph Rocky["Rocky Linux Server"]
-        C["FastAPI Queueing Service<br/>Docker Container"]
-
-        D["Prometheus<br/>Metrics Collection"]
-
-        E["Grafana<br/>Real-Time Dashboard"]
-
-        C -->|Expose Metrics| D
-        D -->|Query Metrics| E
-    end
-
-    B -->|HTTP Requests| C
-
-    style A fill:#f8fafc,stroke:#64748b
-    style B fill:#dcfce7,stroke:#16a34a
-    style C fill:#dbeafe,stroke:#2563eb
-    style D fill:#fef3c7,stroke:#d97706
-    style E fill:#f3e8ff,stroke:#9333ea
-```
+The system deploys a containerized FastAPI queueing service on a Rocky Linux server and generates Poisson-distributed traffic from a client node. Prometheus collects runtime metrics, while Grafana provides real-time visualization for latency, throughput, queue depth, and capacity planning analysis.
 
 ## Key Results
 
