@@ -1,0 +1,67 @@
+{
+  "uid": "queueing-twin",
+  "title": "Queueing Digital Twin — Live System",
+  "timezone": "browser",
+  "refresh": "5s",
+  "time": { "from": "now-15m", "to": "now" },
+  "panels": [
+    {
+      "id": 1,
+      "type": "timeseries",
+      "title": "Arrival rate λ vs throughput (req/s)",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": { "defaults": { "unit": "reqps" }, "overrides": [] },
+      "targets": [
+        { "refId": "A", "expr": "rate(arrivals_total[30s])", "legendFormat": "arrivals λ" },
+        { "refId": "B", "expr": "rate(served_total[30s])", "legendFormat": "throughput λ_eff" }
+      ]
+    },
+    {
+      "id": 2,
+      "type": "timeseries",
+      "title": "Requests in system L (waiting + in service)",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 0 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": { "defaults": {}, "overrides": [] },
+      "targets": [
+        { "refId": "A", "expr": "in_system", "legendFormat": "L (in system)" },
+        { "refId": "B", "expr": "busy_servers", "legendFormat": "busy servers" }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "timeseries",
+      "title": "Latency W: mean / p95 / p99",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 8 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": { "defaults": { "unit": "s" }, "overrides": [] },
+      "targets": [
+        { "refId": "A",
+          "expr": "rate(request_latency_seconds_sum[1m]) / rate(request_latency_seconds_count[1m])",
+          "legendFormat": "mean W" },
+        { "refId": "B",
+          "expr": "histogram_quantile(0.95, rate(request_latency_seconds_bucket[1m]))",
+          "legendFormat": "p95" },
+        { "refId": "C",
+          "expr": "histogram_quantile(0.99, rate(request_latency_seconds_bucket[1m]))",
+          "legendFormat": "p99" }
+      ]
+    },
+    {
+      "id": 4,
+      "type": "timeseries",
+      "title": "Rejection probability (503s / arrivals) — M/M/c/K blocking",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 8 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": { "defaults": { "unit": "percentunit", "max": 1, "min": 0 }, "overrides": [] },
+      "targets": [
+        { "refId": "A",
+          "expr": "rate(rejected_total[1m]) / rate(arrivals_total[1m])",
+          "legendFormat": "P(reject)" }
+      ]
+    }
+  ],
+  "schemaVersion": 39,
+  "version": 1
+}

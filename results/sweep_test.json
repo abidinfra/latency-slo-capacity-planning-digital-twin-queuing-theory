@@ -1,0 +1,122 @@
+[
+  {
+    "offered_rate": 8.0,
+    "duration": 35.0,
+    "sent": 214,
+    "ok": 214,
+    "rejected": 0,
+    "errors": 0,
+    "achieved_rate": 7.19327731092437,
+    "throughput": 7.19327731092437,
+    "reject_prob": 0.0,
+    "mean_latency": 0.04833568542056146,
+    "p50_latency": 0.03462452400003713,
+    "p95_latency": 0.13607985600003758,
+    "p99_latency": 0.23209568299995453,
+    "L_measured": 0.3108108108108108,
+    "mu_hat": 20.214764726433962,
+    "server_config": {
+      "mu": 20.0,
+      "c": 2,
+      "k": 0
+    },
+    "littles_lhs_L": 0.3108108108108108,
+    "littles_rhs_lamW": 0.3476919892437026
+  },
+  {
+    "offered_rate": 16.0,
+    "duration": 35.0,
+    "sent": 464,
+    "ok": 464,
+    "rejected": 0,
+    "errors": 0,
+    "achieved_rate": 15.596638655462185,
+    "throughput": 15.596638655462185,
+    "reject_prob": 0.0,
+    "mean_latency": 0.05779174584698275,
+    "p50_latency": 0.039184552999984135,
+    "p95_latency": 0.1771355329999551,
+    "p99_latency": 0.27186210200000005,
+    "L_measured": 0.8231292517006803,
+    "mu_hat": 20.853143273403887,
+    "server_config": {
+      "mu": 20.0,
+      "c": 2,
+      "k": 0
+    },
+    "littles_lhs_L": 0.8231292517006803,
+    "littles_rhs_lamW": 0.9013569772436973
+  },
+  {
+    "offered_rate": 24.0,
+    "duration": 35.0,
+    "sent": 711,
+    "ok": 711,
+    "rejected": 0,
+    "errors": 0,
+    "achieved_rate": 23.899159663865547,
+    "throughput": 23.899159663865547,
+    "reject_prob": 0.0,
+    "mean_latency": 0.07847869900562657,
+    "p50_latency": 0.06009283699995649,
+    "p95_latency": 0.21533129099998405,
+    "p99_latency": 0.350668560000031,
+    "L_measured": 1.7755102040816326,
+    "mu_hat": 19.382032018109744,
+    "server_config": {
+      "mu": 20.0,
+      "c": 2,
+      "k": 0
+    },
+    "littles_lhs_L": 1.7755102040816326,
+    "littles_rhs_lamW": 1.8755749577479157
+  },
+  {
+    "offered_rate": 30.0,
+    "duration": 35.0,
+    "sent": 829,
+    "ok": 829,
+    "rejected": 0,
+    "errors": 0,
+    "achieved_rate": 27.865546218487395,
+    "throughput": 27.865546218487395,
+    "reject_prob": 0.0,
+    "mean_latency": 0.08644821825090408,
+    "p50_latency": 0.07288604300003954,
+    "p95_latency": 0.21599522299999308,
+    "p99_latency": 0.29352758800001766,
+    "L_measured": 2.4149659863945576,
+    "mu_hat": 20.303860054043913,
+    "server_config": {
+      "mu": 20.0,
+      "c": 2,
+      "k": 0
+    },
+    "littles_lhs_L": 2.4149659863945576,
+    "littles_rhs_lamW": 2.408926821176453
+  },
+  {
+    "offered_rate": 34.0,
+    "duration": 35.0,
+    "sent": 933,
+    "ok": 933,
+    "rejected": 0,
+    "errors": 0,
+    "achieved_rate": 31.361344537815125,
+    "throughput": 31.361344537815125,
+    "reject_prob": 0.0,
+    "mean_latency": 0.14466004777384844,
+    "p50_latency": 0.11148344399998678,
+    "p95_latency": 0.38268618300003254,
+    "p99_latency": 0.47165275599996903,
+    "L_measured": 4.625850340136054,
+    "mu_hat": 19.804032272499946,
+    "server_config": {
+      "mu": 20.0,
+      "c": 2,
+      "k": 0
+    },
+    "littles_lhs_L": 4.625850340136054,
+    "littles_rhs_lamW": 4.536733599092457
+  }
+]
