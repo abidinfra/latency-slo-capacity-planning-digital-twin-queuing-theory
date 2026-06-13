@@ -3,7 +3,36 @@
 A queueing-theory-based digital twin used to analyze latency behavior, validate service-level objectives (SLOs), and estimate network service capacity limits using real measurements collected from a live deployment.
 
 ## Architecture
+## 🏗️ System Architecture
 
+```mermaid
+flowchart LR
+
+    subgraph Client[" Client Layer"]
+        A["MacBook Air"]
+        B["Poisson Traffic Generator"]
+        A --> B
+    end
+
+    subgraph Rocky["Rocky Linux Server"]
+        C["FastAPI Queueing Service<br/>Docker Container"]
+
+        D["Prometheus<br/>Metrics Collection"]
+
+        E["Grafana<br/>Real-Time Dashboard"]
+
+        C -->|Expose Metrics| D
+        D -->|Query Metrics| E
+    end
+
+    B -->|HTTP Requests| C
+
+    style A fill:#f8fafc,stroke:#64748b
+    style B fill:#dcfce7,stroke:#16a34a
+    style C fill:#dbeafe,stroke:#2563eb
+    style D fill:#fef3c7,stroke:#d97706
+    style E fill:#f3e8ff,stroke:#9333ea
+```
 
 ## Key Results
 
