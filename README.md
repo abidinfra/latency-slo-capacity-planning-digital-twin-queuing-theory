@@ -4,34 +4,35 @@ A queueing-theory-based digital twin used to analyze latency behavior, validate 
 
 ## Architecture
 
- ## System Architecture
-
 ```mermaid
 flowchart LR
+    subgraph client["🖥️  Client"]
+        Client["Client Node<br/><sub>MacBook Air</sub>"]
+        LoadGen["Traffic Generator<br/><sub>Poisson Distribution</sub>"]
+    end
 
-    Client["Client Node<br/>MacBook Air"]
-    LoadGen["Poisson Traffic Generator"]
-
-    Rocky[" Rocky Linux Server"]
-
-    Service["FastAPI Queueing Service<br/>Docker Container"]
-
-    Prom[" Prometheus<br/>Metrics Collection"]
-
-    Graf[" Grafana<br/>Visualization Dashboard"]
+    subgraph server["🐧  Rocky Linux Server"]
+        Service["FastAPI Queueing Service<br/><sub>Docker Container</sub>"]
+        Prom["Prometheus<br/><sub>Metrics Collection</sub>"]
+        Graf["Grafana<br/><sub>Visualization Dashboard</sub>"]
+    end
 
     Client --> LoadGen
     LoadGen -->|HTTP Requests| Service
-
-    Rocky --> Service
-    Rocky --> Prom
-    Rocky --> Graf
-
     Service -->|Metrics| Prom
     Prom --> Graf
+
+    classDef hardware fill:#F1EFE8,stroke:#5F5E5A,stroke-width:1px,color:#2C2C2A;
+    classDef app fill:#E1F5EE,stroke:#0F6E56,stroke-width:1px,color:#04342C;
+    classDef obs fill:#EEEDFE,stroke:#534AB7,stroke-width:1px,color:#26215C;
+
+    class Client hardware;
+    class LoadGen,Service app;
+    class Prom,Graf obs;
+
+    style client fill:#FAFAF7,stroke:#B4B2A9,stroke-width:1px,color:#5F5E5A;
+    style server fill:#FAFAF7,stroke:#B4B2A9,stroke-width:1px,color:#5F5E5A;
 ```
-
-
 
 ## Key Results
 
