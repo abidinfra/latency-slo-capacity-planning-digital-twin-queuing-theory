@@ -4,30 +4,22 @@ A queueing-theory-based digital twin used to analyze latency behavior, validate 
 
 ## Architecture
 
-## System Architecture
 
-The system models realistic, bursty traffic against a containerized queueing service and observes its behavior end to end. A client generates Poisson-distributed load, a FastAPI service handles requests inside Docker, and Prometheus + Grafana capture and visualize the metrics.
-
-<p align="center">
-  <img src="docs/architecture.svg" alt="System architecture diagram" width="100%">
-</p>
-
-### Components
-
-| Component | Role |
-|-----------|------|
-| **Client Node** | MacBook Air running the load-generation script |
-| **Traffic Generator** | Emits requests with exponential inter-arrival times (a Poisson process) to simulate realistic, bursty load |
-| **FastAPI Queueing Service** | Containerized service under test; processes incoming requests through a queue |
-| **Prometheus** | Scrapes and stores the time-series metrics exposed by the service |
-| **Grafana** | Dashboards for queue depth, latency, and throughput under load |
-
-### Data Flow
-
-1. The **client** starts the traffic generator.
-2. The generator fires **HTTP requests** at Poisson-distributed intervals against the FastAPI service.
-3. The service exposes runtime **metrics**, which Prometheus scrapes on a fixed interval.
-4. **Grafana** queries Prometheus and renders live dashboards of system behavior under load.
+flowchart LR
+    Client["Client Node<br/>MacBook Air"]
+    LoadGen["Poisson Traffic Generator"]
+    Rocky[" Rocky Linux Server"]
+    Service["FastAPI Queueing Service<br/>Docker Container"]
+    Prom[" Prometheus<br/>Metrics Collection"]
+    Graf[" Grafana<br/>Visualization Dashboard"]
+    Client --> LoadGen
+    LoadGen -->|HTTP Requests| Service
+    Rocky --> Service
+    Rocky --> Prom
+    Rocky --> Graf
+    Service -->|Metrics| Prom
+    Prom --> Graf
+```
 ## Key Results
 
 | Metric                  | Value               |
