@@ -26,15 +26,7 @@ A queueing-theory-based digital twin used to analyze latency behavior, validate 
 +---------------+   +---------------+
 ```
 
-## Methodology
 
-1. Deploy the queueing service using Docker Compose on Rocky Linux.
-2. Generate Poisson traffic from a separate client machine.
-3. Collect latency, throughput, queue length, and utilization metrics using Prometheus.
-4. Visualize system behavior in Grafana.
-5. Perform load sweeps across multiple arrival rates.
-6. Calibrate an M/M/c queueing model using measured data.
-7. Estimate maximum sustainable throughput under a latency SLO.
 
 ## Key Results
 
