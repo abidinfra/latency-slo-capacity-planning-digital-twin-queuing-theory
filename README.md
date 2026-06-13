@@ -4,26 +4,31 @@ A queueing-theory-based digital twin used to analyze latency behavior, validate 
 
 ## Architecture
 
-```text
-+------------------+
-|  MacBook Client  |
-| Poisson Load Gen |
-+--------+---------+
-         |
-         v
-+------------------+
-| FastAPI Service  |
-|   c = 2 Servers  |
-|   μ = 20 req/s   |
-+--------+---------+
-         |
-         +----------------+
-         |                |
-         v                v
-+---------------+   +---------------+
-|  Prometheus   |   |    Grafana    |
-| Metrics Store |   | Visualization |
-+---------------+   +---------------+
+ ## System Architecture
+
+```mermaid
+flowchart LR
+
+    Client["💻 Client Node<br/>MacBook Air"]
+    LoadGen["⚡ Poisson Traffic Generator"]
+
+    Rocky["🖥️ Rocky Linux Server"]
+
+    Service["🚀 FastAPI Queueing Service<br/>Docker Container"]
+
+    Prom["📊 Prometheus<br/>Metrics Collection"]
+
+    Graf["📈 Grafana<br/>Visualization Dashboard"]
+
+    Client --> LoadGen
+    LoadGen -->|HTTP Requests| Service
+
+    Rocky --> Service
+    Rocky --> Prom
+    Rocky --> Graf
+
+    Service -->|Metrics| Prom
+    Prom --> Graf
 ```
 
 
@@ -39,16 +44,25 @@ A queueing-theory-based digital twin used to analyze latency behavior, validate 
 | Predicted λmax          | 28.97 req/s         |
 | Little's Law Validation | Successful          |
 
-## Technologies
+## Technology Stack
 
-* Docker
-* FastAPI
-* Prometheus
-* Grafana
-* Python
-* Queueing Theory (M/M/c)
-* Capacity Planning
-* Performance Engineering
+### Infrastructure
+- Rocky Linux 9
+- Docker
+- Docker Compose
+
+### Monitoring
+- Prometheus
+- Grafana
+
+### Application
+- FastAPI
+- Python
+
+### Performance Engineering
+- Queueing Theory (M/M/c)
+- Little's Law
+- SLO Capacity Planning
 
 ## Repository Structure
 
