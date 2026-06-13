@@ -1,0 +1,98 @@
+<svg width="880" height="540" viewBox="0 0 880 540" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1 1 L9 5 L1 9" fill="none" stroke="#16a34a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1 1 L9 5 L1 9" fill="none" stroke="#94a3b8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1 1 L9 5 L1 9" fill="none" stroke="#d97706" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="ap" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1 1 L9 5 L1 9" fill="none" stroke="#9333ea" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      .title { font-size: 15px; font-weight: 600; }
+      .sub   { font-size: 12px; font-weight: 400; }
+      .tier  { font-size: 12px; font-weight: 600; letter-spacing: .8px; }
+      .edge  { font-size: 11px; font-weight: 500; }
+      .hint  { font-size: 11px; font-weight: 400; }
+
+      .tier-txt { fill: #475569; }
+      .grp-box  { fill: #f8fafc; stroke: #cbd5e1; stroke-dasharray: 5 4; }
+      .edge-txt { fill: #475569; }
+      .hint-txt { fill: #94a3b8; }
+      .ln-n  { stroke: #94a3b8; }
+
+      .n-cl   { fill: #f8fafc; stroke: #64748b; }
+      .n-cl-t { fill: #1e293b; } .n-cl-s { fill: #64748b; }
+      .n-gen   { fill: #dcfce7; stroke: #16a34a; }
+      .n-gen-t { fill: #14532d; } .n-gen-s { fill: #16a34a; }
+      .n-api   { fill: #dbeafe; stroke: #2563eb; }
+      .n-api-t { fill: #1e3a8a; } .n-api-s { fill: #2563eb; }
+      .n-pr   { fill: #fef3c7; stroke: #d97706; }
+      .n-pr-t { fill: #78350f; } .n-pr-s { fill: #b45309; }
+      .n-gr   { fill: #f3e8ff; stroke: #9333ea; }
+      .n-gr-t { fill: #581c87; } .n-gr-s { fill: #9333ea; }
+
+      @media (prefers-color-scheme: dark) {
+        .tier-txt { fill: #94a3b8; }
+        .grp-box  { fill: #161b22; stroke: #30363d; }
+        .edge-txt { fill: #b4bcc8; }
+        .hint-txt { fill: #6b7280; }
+        .ln-n  { stroke: #6b7280; }
+
+        .n-cl   { fill: #1e293b; stroke: #94a3b8; }
+        .n-cl-t { fill: #f1f5f9; } .n-cl-s { fill: #cbd5e1; }
+        .n-gen   { fill: #052e16; stroke: #22c55e; }
+        .n-gen-t { fill: #bbf7d0; } .n-gen-s { fill: #4ade80; }
+        .n-api   { fill: #0c1f44; stroke: #3b82f6; }
+        .n-api-t { fill: #bfdbfe; } .n-api-s { fill: #60a5fa; }
+        .n-pr   { fill: #3b2706; stroke: #f59e0b; }
+        .n-pr-t { fill: #fde68a; } .n-pr-s { fill: #fbbf24; }
+        .n-gr   { fill: #2e1065; stroke: #a855f7; }
+        .n-gr-t { fill: #e9d5ff; } .n-gr-s { fill: #c084fc; }
+      }
+    </style>
+  </defs>
+
+  <text class="tier tier-txt" x="148" y="44" text-anchor="middle">CLIENT LAYER</text>
+  <text class="tier tier-txt" x="668" y="44" text-anchor="middle">ROCKY LINUX SERVER</text>
+
+  <rect class="grp-box" x="48" y="62" width="200" height="416" rx="16"/>
+
+  <rect class="n-cl" x="76" y="120" width="144" height="70" rx="10" stroke-width="1.2"/>
+  <text class="title n-cl-t" x="148" y="160" text-anchor="middle">MacBook Air</text>
+
+  <rect class="n-gen" x="76" y="300" width="144" height="78" rx="10" stroke-width="1.2"/>
+  <text class="title n-gen-t" x="148" y="330" text-anchor="middle">Traffic Generator</text>
+  <text class="sub n-gen-s" x="148" y="350" text-anchor="middle">Poisson arrivals</text>
+
+  <line class="ln-n" x1="148" y1="190" x2="148" y2="298" stroke-width="1.4" marker-end="url(#aa)"/>
+
+  <rect class="grp-box" x="468" y="62" width="296" height="416" rx="16"/>
+
+  <rect class="n-api" x="516" y="100" width="200" height="78" rx="10" stroke-width="1.2"/>
+  <text class="title n-api-t" x="616" y="130" text-anchor="middle">FastAPI Service</text>
+  <text class="sub n-api-s" x="616" y="150" text-anchor="middle">Queueing · Docker container</text>
+
+  <rect class="n-pr" x="516" y="240" width="200" height="78" rx="10" stroke-width="1.2"/>
+  <text class="title n-pr-t" x="616" y="270" text-anchor="middle">Prometheus</text>
+  <text class="sub n-pr-s" x="616" y="290" text-anchor="middle">Metrics collection</text>
+
+  <rect class="n-gr" x="516" y="380" width="200" height="78" rx="10" stroke-width="1.2"/>
+  <text class="title n-gr-t" x="616" y="410" text-anchor="middle">Grafana</text>
+  <text class="sub n-gr-s" x="616" y="430" text-anchor="middle">Real-time dashboard</text>
+
+  <line stroke="#d97706" x1="616" y1="178" x2="616" y2="238" stroke-width="1.6" marker-end="url(#ab)"/>
+  <text class="edge edge-txt" x="632" y="212" text-anchor="start">expose metrics</text>
+  <line stroke="#9333ea" x1="616" y1="318" x2="616" y2="378" stroke-width="1.6" marker-end="url(#ap)"/>
+  <text class="edge edge-txt" x="632" y="352" text-anchor="start">query metrics</text>
+
+  <path stroke="#16a34a" d="M220 339 H 360 V 139 H 514" fill="none" stroke-width="1.8" marker-end="url(#ag)"/>
+  <rect x="294" y="227" width="132" height="24" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="0.8"/>
+  <text class="edge n-gen-s" x="360" y="243" text-anchor="middle">HTTP requests</text>
+
+  <text class="hint hint-txt" x="406" y="514" text-anchor="middle">Poisson-distributed load → containerized queueing service → metrics &amp; dashboards</text>
+</svg>
