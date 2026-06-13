@@ -9,16 +9,16 @@ A queueing-theory-based digital twin used to analyze latency behavior, validate 
 ```mermaid
 flowchart LR
 
-    Client["💻 Client Node<br/>MacBook Air"]
-    LoadGen["⚡ Poisson Traffic Generator"]
+    Client["Client Node<br/>MacBook Air"]
+    LoadGen["Poisson Traffic Generator"]
 
-    Rocky["🖥️ Rocky Linux Server"]
+    Rocky[" Rocky Linux Server"]
 
-    Service["🚀 FastAPI Queueing Service<br/>Docker Container"]
+    Service["FastAPI Queueing Service<br/>Docker Container"]
 
-    Prom["📊 Prometheus<br/>Metrics Collection"]
+    Prom[" Prometheus<br/>Metrics Collection"]
 
-    Graf["📈 Grafana<br/>Visualization Dashboard"]
+    Graf[" Grafana<br/>Visualization Dashboard"]
 
     Client --> LoadGen
     LoadGen -->|HTTP Requests| Service
